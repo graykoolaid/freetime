@@ -1,6 +1,9 @@
 #pragma once
 #include "../Content/ShaderStructures.h"
 #include <DirectXMath.h>
+#include <vector>
+
+using namespace std;
 
 namespace FreeTime
 {
@@ -8,10 +11,8 @@ namespace FreeTime
 	{
 	public:
 		Cube();
-		unsigned short * indices;
-		VertexPositionColor * vertices;
-		short indice_len;
-		short vertice_len;
+		vector<short> indices;
+		vector<VertexPositionColor> vertices;
 	private:
 			
 	};

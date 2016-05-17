@@ -95,8 +95,5 @@
     <Text Include="cube.txt">
       <Filter>Objects\Cube</Filter>
     </Text>
-    <Text Include="cubeVertices.txt">
-      <Filter>Objects\Cube</Filter>
-    </Text>
   </ItemGroup>
 </Project>
