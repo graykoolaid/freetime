@@ -8,8 +8,7 @@ ObjectBridge::ObjectBridge()
 {
 	Cube cube = Cube::Cube();
 	
-	vector<short> indices;
-	vector<VertexPositionColor> vertices;
+	//Pass data of all objects above into SceneRenderer
 
 	return;
 }
