@@ -5,6 +5,7 @@
 #include <ppltasks.h>
 #include <synchapi.h>
 #include "Cube.h"
+#include "ObjectBridge.h"
 #include <iostream>
 
 using namespace FreeTime;
@@ -23,7 +24,7 @@ Platform::String^ TrackingKey = "Tracking";
 // Loads vertex and pixel shaders from files and instantiates the cube geometry.
 Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceResources>& deviceResources) :
 	m_loadingComplete(false),
-	m_radiansPerSecond(XM_PIDIV4),	// rotate 45 degrees per second
+	m_radiansPerSecond(XM_PIDIV4/3),	// rotate 45 degrees per second
 	m_angle(0),
 	m_tracking(false),
 	m_mappedConstantBuffer(nullptr),
@@ -118,6 +119,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 		DX::ThrowIfFailed(d3dDevice->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_deviceResources->GetCommandAllocator(), m_pipelineState.Get(), IID_PPV_ARGS(&m_commandList)));
 
 		Cube cube = Cube::Cube();
+		ObjectBridge obj = ObjectBridge::ObjectBridge();
 			
 		//const UINT vertexBufferSize = sizeof(cubeVertices);
 		

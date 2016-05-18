@@ -8,20 +8,10 @@ using namespace std;
 
 namespace FreeTime
 {
-	class Cube : public Renderable
+	class ObjectBridge
 	{
 	public:
-		Cube();
-		vector<short> indices;
-		vector<VertexPositionColor> vertices;
-	private:
-			
-	};
-
-	class Plane : public Renderable
-	{
-	public:
-		Plane();
+		ObjectBridge();
 		vector<short> indices;
 		vector<VertexPositionColor> vertices;
 	private:

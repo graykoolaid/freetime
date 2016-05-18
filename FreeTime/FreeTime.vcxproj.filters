@@ -76,6 +76,12 @@
     <ClCompile Include="Cube.cpp">
       <Filter>Objects\Cube</Filter>
     </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Objects\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderable.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -83,6 +89,9 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Cube.h">
       <Filter>Objects\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderable.h">
+      <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -95,5 +104,22 @@
     <Text Include="cube.txt">
       <Filter>Objects\Cube</Filter>
     </Text>
+    <Text Include="plane.txt">
+      <Filter>Objects\Cube</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
 </Project>
