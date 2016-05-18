@@ -82,6 +82,9 @@
     <ClCompile Include="Renderable.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectBridge.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -91,6 +94,9 @@
       <Filter>Objects\Cube</Filter>
     </ClInclude>
     <ClInclude Include="Renderable.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectBridge.h">
       <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
