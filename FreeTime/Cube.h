@@ -12,8 +12,14 @@ namespace FreeTime
 	{
 	public:
 		Cube();
+		Cube(vector<short>&, vector<VertexPositionColor>&);
+		Cube(vector<short>&, vector<VertexPositionColor>&, float y);
 		vector<short> indices;
 		vector<VertexPositionColor> vertices;
+		int index_pos;
+		int vertex_pos;
+		int number_of_indices;
+		int number_of_vertices;
 	private:
 			
 	};
@@ -22,8 +28,14 @@ namespace FreeTime
 	{
 	public:
 		Plane();
+		Plane(vector<short>&, vector<VertexPositionColor>&);
+		Plane(vector<short>&, vector<VertexPositionColor>&, float y);
 		vector<short> indices;
 		vector<VertexPositionColor> vertices;
+		int index_pos;
+		int vertex_pos;
+		int number_of_indices;
+		int number_of_vertices;
 	private:
 
 	};

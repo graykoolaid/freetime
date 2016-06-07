@@ -118,12 +118,12 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 		// Create a command list.
 		DX::ThrowIfFailed(d3dDevice->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_deviceResources->GetCommandAllocator(), m_pipelineState.Get(), IID_PPV_ARGS(&m_commandList)));
 
-		Cube cube = Cube::Cube();
-		ObjectBridge obj = ObjectBridge::ObjectBridge();
+		// Get the list of all the object data
+		ObjectBridge renderable = ObjectBridge::ObjectBridge();
 			
 		//const UINT vertexBufferSize = sizeof(cubeVertices);
 		
-		const UINT vertexBufferSize = sizeof(cube.vertices)*cube.vertices.size();
+		const UINT vertexBufferSize = sizeof(renderable.vertices)*renderable.vertices.size();
 
 		// Create the vertex buffer resource in the GPU's default heap and copy vertex data into it using the upload heap.
 		// The upload resource must not be released until after the GPU has finished using it.
@@ -154,7 +154,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 		// Upload the vertex buffer to the GPU.
 		{
 			D3D12_SUBRESOURCE_DATA vertexData = {};
-			vertexData.pData = reinterpret_cast<BYTE*>(&cube.vertices[0]);
+			vertexData.pData = reinterpret_cast<BYTE*>(&renderable.vertices[0]);
 			vertexData.RowPitch = vertexBufferSize;
 			vertexData.SlicePitch = vertexData.RowPitch;
 
@@ -165,7 +165,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 			m_commandList->ResourceBarrier(1, &vertexBufferResourceBarrier);
 		}
 
-		const UINT indexBufferSize = sizeof(cube.indices[0]) * cube.indices.size();
+		const UINT indexBufferSize = sizeof(renderable.indices[0]) * renderable.indices.size();
 		//const UINT indexBufferSize = sizeof(cubeIndices) ;
 
 		// Create the index buffer resource in the GPU's default heap and copy index data into it using the upload heap.
@@ -195,7 +195,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 		// Upload the index buffer to the GPU.
 		{
 			D3D12_SUBRESOURCE_DATA indexData = {};
-			indexData.pData = reinterpret_cast<BYTE*>(&cube.indices[0]);
+			indexData.pData = reinterpret_cast<BYTE*>(&renderable.indices[0]);
 			indexData.RowPitch = indexBufferSize;
 			indexData.SlicePitch = indexData.RowPitch;
 
@@ -258,10 +258,10 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 		// Create vertex/index buffer views.
 		m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
 		m_vertexBufferView.StrideInBytes = sizeof(VertexPositionColor);
-		m_vertexBufferView.SizeInBytes = sizeof(cube.vertices[0])*cube.vertices.size();
+		m_vertexBufferView.SizeInBytes = sizeof(renderable.vertices[0])*renderable.vertices.size();
 
 		m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
-		m_indexBufferView.SizeInBytes = sizeof(cube.indices[0])*cube.indices.size();
+		m_indexBufferView.SizeInBytes = sizeof(renderable.indices[0])*renderable.indices.size();
 		m_indexBufferView.Format = DXGI_FORMAT_R16_UINT;
 
 		// Wait for the command list to finish executing; the vertex/index buffers need to be uploaded to the GPU before the upload resources go out of scope.
