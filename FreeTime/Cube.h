@@ -13,7 +13,7 @@ namespace FreeTime
 	public:
 		Cube();
 		Cube(vector<short>&, vector<VertexPositionColor>&);
-		Cube(vector<short>&, vector<VertexPositionColor>&, float y);
+		Cube(vector<short>&, vector<VertexPositionColor>&, float);
 		vector<short> indices;
 		vector<VertexPositionColor> vertices;
 		int index_pos;
@@ -21,7 +21,7 @@ namespace FreeTime
 		int number_of_indices;
 		int number_of_vertices;
 	private:
-			
+		void cube_helper(vector<short>&, vector<VertexPositionColor>&, float);
 	};
 
 	class Plane : public Renderable
@@ -37,6 +37,6 @@ namespace FreeTime
 		int number_of_indices;
 		int number_of_vertices;
 	private:
-
+		void plane_helper(vector<short>&, vector<VertexPositionColor>&, float);
 	};
 }

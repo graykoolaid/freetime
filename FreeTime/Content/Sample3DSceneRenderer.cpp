@@ -33,6 +33,7 @@ Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceRes
 	LoadState();
 	ZeroMemory(&m_constantBufferData, sizeof(m_constantBufferData));
 
+	
 	CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
 }
@@ -46,7 +47,8 @@ Sample3DSceneRenderer::~Sample3DSceneRenderer()
 void Sample3DSceneRenderer::CreateDeviceDependentResources()
 {
 	auto d3dDevice = m_deviceResources->GetD3DDevice();
-
+	Sample3DSceneRenderer* this_render = this;
+	this_render->total_indices;
 	// Create a root signature with a single constant buffer slot.
 	{
 		CD3DX12_DESCRIPTOR_RANGE range;
@@ -112,7 +114,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 	});
 
 	// Create and upload cube geometry resources to the GPU.
-	auto createAssetsTask = createPipelineStateTask.then([this]() {
+	auto createAssetsTask = createPipelineStateTask.then([this, this_render]() {
 		auto d3dDevice = m_deviceResources->GetD3DDevice();
 
 		// Create a command list.
@@ -120,9 +122,8 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 
 		// Get the list of all the object data
 		ObjectBridge renderable = ObjectBridge::ObjectBridge();
-			
-		//const UINT vertexBufferSize = sizeof(cubeVertices);
-		
+		this_render->total_indices = renderable.indices.size();
+
 		const UINT vertexBufferSize = sizeof(renderable.vertices)*renderable.vertices.size();
 
 		// Create the vertex buffer resource in the GPU's default heap and copy vertex data into it using the upload heap.
@@ -446,7 +447,7 @@ bool Sample3DSceneRenderer::Render()
 		m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		m_commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
 		m_commandList->IASetIndexBuffer(&m_indexBufferView);
-		m_commandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
+		m_commandList->DrawIndexedInstanced(this->total_indices, 1, 0, 0, 0);
 
 		// Indicate that the render target will now be used to present when the command list is done executing.
 		CD3DX12_RESOURCE_BARRIER presentResourceBarrier =

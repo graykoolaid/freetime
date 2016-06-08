@@ -51,6 +51,9 @@ namespace FreeTime
 		D3D12_VERTEX_BUFFER_VIEW							m_vertexBufferView;
 		D3D12_INDEX_BUFFER_VIEW								m_indexBufferView;
 
+		// Added by Michael
+		int	total_indices;
+
 		// Variables used with the rendering loop.
 		bool	m_loadingComplete;
 		float	m_radiansPerSecond;
