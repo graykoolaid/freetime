@@ -41,14 +41,24 @@ void Cube::cube_helper(vector<short>& indices, vector<VertexPositionColor>& vert
 	}
 	indices.pop_back();
 
-	vertices.push_back({ XMFLOAT3(-0.5f, -0.5f + y, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f) });
+	vertices.push_back({ XMFLOAT3(-0.5f, -0.5f + y, -0.5f), XMFLOAT3(-1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) });
+	vertices.push_back({ XMFLOAT3(-0.5f, -0.5f + y,  0.5f), XMFLOAT3(-1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f) });
+	vertices.push_back({ XMFLOAT3(-0.5f,  0.5f + y, -0.5f), XMFLOAT3(-1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, 1.0f, 0.0f) });
+	vertices.push_back({ XMFLOAT3(-0.5f,  0.5f + y,  0.5f), XMFLOAT3(-1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, 1.0f, 1.0f) });
+
+	vertices.push_back({ XMFLOAT3(0.5f, -0.5f + y, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 0.0f, 0.0f) });
+	vertices.push_back({ XMFLOAT3(0.5f, -0.5f + y,  0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 0.0f, 1.0f) });
+	vertices.push_back({ XMFLOAT3(0.5f,  0.5f + y, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 0.0f) });
+	vertices.push_back({ XMFLOAT3(0.5f,  0.5f + y,  0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 1.0f) });
+
+/*	vertices.push_back({ XMFLOAT3(-0.5f, -0.5f + y, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f) });
 	vertices.push_back({ XMFLOAT3(-0.5f, -0.5f + y,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f) });
 	vertices.push_back({ XMFLOAT3(-0.5f,  0.5f + y, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f) });
 	vertices.push_back({ XMFLOAT3(-0.5f,  0.5f + y,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f) });
 	vertices.push_back({ XMFLOAT3(0.5f, -0.5f + y, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f) });
 	vertices.push_back({ XMFLOAT3(0.5f, -0.5f + y,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f) });
 	vertices.push_back({ XMFLOAT3(0.5f,  0.5f + y, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f) });
-	vertices.push_back({ XMFLOAT3(0.5f,  0.5f + y,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f) });
+	vertices.push_back({ XMFLOAT3(0.5f,  0.5f + y,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f) });*/
 	number_of_vertices = 8;
 
 	index_pos = indices.size() - number_of_indices;

@@ -14,6 +14,7 @@ namespace FreeTime
 	struct VertexPositionColor
 	{
 		DirectX::XMFLOAT3 pos;
+		DirectX::XMFLOAT3 norm;
 		DirectX::XMFLOAT3 color;
 	};
 }
